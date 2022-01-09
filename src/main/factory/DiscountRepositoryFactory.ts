@@ -1,4 +1,4 @@
-import { DiscountRepository } from '../../domain/repository/DiscountRepository';
+import { DiscountRepository } from '../../data/repository/DiscountRepository';
 import { GRPCAdapter } from '../../adapter/grpc/GRPCAdapter';
 
 class DiscountRepositoryFactory {

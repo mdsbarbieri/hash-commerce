@@ -1,4 +1,4 @@
-import { ProductRepository } from '../../domain/repository/ProductRepository';
+import { ProductRepository } from '../../data/repository/ProductRepository';
 import { JSONRepository } from '../../adapter/repository/JSONRepository';
 
 class ProductRepositoryFactory {

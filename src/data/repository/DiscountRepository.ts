@@ -12,9 +12,9 @@ export class DiscountRepository {
     }
   }
 
-  getDiscountByProduct(productId: number): Promise<{ percentage: number }> {
+  getDiscountByProduct(productId: string): Promise<{ percentage: number }> {
     return new Promise((resolve) => {
-      this.api.GetDiscount({ productId: productId }, (err: any, response: any) => {
+      this.api.GetDiscount({ productId: +productId }, (err: any, response: any) => {
         if (err) {
           resolve({ percentage: 0 });
           return;
