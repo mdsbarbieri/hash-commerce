@@ -1,4 +1,4 @@
-import Fastify, { FastifyInstance } from 'fastify';
+import Fastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
 import fastifyHelmet from 'fastify-helmet';
 import { Server } from '../../data/model/server/Server';
 
@@ -6,10 +6,12 @@ export class FastifyAdapter implements Server<FastifyInstance> {
   private readonly server: FastifyInstance;
   private initialized: boolean = false;
 
-  constructor(private readonly port: string, private readonly host = '0.0.0.0') {
-    this.server = Fastify({
-      logger: true,
-    });
+  constructor(
+    private readonly port: string,
+    private readonly host = '0.0.0.0',
+    private readonly options: FastifyServerOptions = {}
+  ) {
+    this.server = Fastify(options);
     this.server.register(fastifyHelmet, { contentSecurityPolicy: false });
     this.declareHealthCheckRoute();
   }
@@ -33,7 +35,6 @@ export class FastifyAdapter implements Server<FastifyInstance> {
       this.initialized = true;
     } catch (e) {
       console.error(`Error on init server on host ${this.host} and port ${this.port}`);
-      process.exit(1);
     }
   }
 
@@ -45,7 +46,6 @@ export class FastifyAdapter implements Server<FastifyInstance> {
       await this.server.close();
     } catch (e) {
       console.error(`Error on stop server on host ${this.host} and port ${this.port}`);
-      process.exit(1);
     }
   }
 

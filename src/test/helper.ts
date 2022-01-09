@@ -2,7 +2,7 @@ import { FastifyAdapter } from '../adapter/server/FastifyAdapter';
 import { App } from '../App';
 
 export const initializeTestEnvironment = (controllerArray: any = []) => {
-  const fastifyAdapter = new FastifyAdapter('3002');
+  const fastifyAdapter = new FastifyAdapter('3002', '0.0.0.0', { logger: false });
   const server = new App(fastifyAdapter, controllerArray);
 
   beforeAll(async () => {
