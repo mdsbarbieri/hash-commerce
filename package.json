@@ -1,0 +1,22 @@
+{
+  "name": "hash-commerce",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mdsbarbieri/hash-commerce.git",
+  "author": "Matheus Barbieri <mdsbarbieri@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "rm -rf ./dist && tsc",
+    "dev": "nodemon"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.15",
+    "prettier": "2.5.1",
+    "ts-node": "10.4.0",
+    "typescript": "4.5.4"
+  },
+  "dependencies": {
+    "dotenv": "10.0.0"
+  }
+}
