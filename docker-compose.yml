@@ -1,0 +1,12 @@
+version: '3'
+services:
+  discount-service:
+    image: hashorg/hash-mock-discount-service
+  commerce-service:
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      SERVER_PORT: "4000"
+      SERVER_HOST: "0.0.0.0"
+      DISCOUNT_SERVER_HOST: "discount-service:50051"

@@ -58,12 +58,8 @@ export class ShoppingCart {
   }
 
   async get(cart: Cart): Promise<Cart> {
-    cart.totalAmount = this.calculateTotalAmount(
-      this.getProductsArray(cart.products.entries()));
-
-    cart.totalAmountWithDiscount = this.calculateTotalAmountWithDiscount(this.getProductsArray(cart.products.entries())
-    );
-
+    cart.totalAmount = this.calculateTotalAmount(this.getProductsArray(cart.products.entries()));
+    cart.totalAmountWithDiscount = this.calculateTotalAmountWithDiscount(this.getProductsArray(cart.products.entries()));
     cart.totalDiscount = this.calculateTotalDiscount(this.getProductsArray(cart.products.entries()));
     return cart;
   }

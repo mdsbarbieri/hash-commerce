@@ -8,6 +8,8 @@
   "private": true,
   "scripts": {
     "build": "rm -rf ./dist && tsc",
+    "postbuild": "cp -r ./src/data/proto ./dist/src/data/proto",
+    "start": "node -r dotenv/config dist/src/main.js",
     "dev": "nodemon",
     "lint": "eslint . --ext .ts --fix",
     "test": "NODE_ENV=test jest",
