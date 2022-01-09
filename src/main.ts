@@ -1,1 +1,3 @@
-console.log("Hello World!");
+export const bootstrap = () => {
+  return true;
+};
