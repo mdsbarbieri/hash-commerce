@@ -1,7 +1,8 @@
 import Fastify, { FastifyInstance } from 'fastify';
 import fastifyHelmet from 'fastify-helmet';
+import { Server } from '../../data/model/server/Server';
 
-export class FastifyAdapter {
+export class FastifyAdapter implements Server<FastifyInstance> {
   private readonly server: FastifyInstance;
   private initialized: boolean = false;
 
@@ -46,5 +47,13 @@ export class FastifyAdapter {
       console.error(`Error on stop server on host ${this.host} and port ${this.port}`);
       process.exit(1);
     }
+  }
+
+  get(path: string, handler: any): void {
+    this.server.get(path, handler);
+  }
+
+  post(path: string, handler: any): void {
+    this.server.post(path, handler);
   }
 }
