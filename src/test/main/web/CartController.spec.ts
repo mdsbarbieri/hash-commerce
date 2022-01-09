@@ -1,5 +1,5 @@
-import { CartController } from '../../../../main/web/CartController';
-import { initializeTestEnvironment } from '../../../helper';
+import { CartController } from '../../../main/web/CartController';
+import { initializeTestEnvironment } from '../../helper';
 
 describe('Cart Controller', () => {
   const adapter = initializeTestEnvironment([CartController]);
