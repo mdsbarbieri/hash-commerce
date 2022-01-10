@@ -1,12 +1,12 @@
-import { Get } from '../../domain/decorator/Get';
-import { ControllerDefinition } from '../../data/model/server/ControllerDefinition';
-import { Controller } from '../../domain/decorator/Controller';
-import { Request } from '../../data/model/server/Request';
-import { Response } from '../../data/model/server/Response';
-import { Post } from '../../domain/decorator/Post';
-import { AddItemToCart } from '../../domain/useCase/AddItemToCart';
-import { productRepository } from '../factory/ProductRepositoryFactory';
-import { shoppingCart } from '../factory/ShoppingCartFactory';
+import {Get} from '../../domain/decorator/Get';
+import {ControllerDefinition} from '../../data/model/server/ControllerDefinition';
+import {Controller} from '../../domain/decorator/Controller';
+import {Request} from '../../data/model/server/Request';
+import {Response} from '../../data/model/server/Response';
+import {Post} from '../../domain/decorator/Post';
+import {AddItemToCart} from '../../domain/useCase/AddItemToCart';
+import {productRepository} from '../factory/ProductRepositoryFactory';
+import {shoppingCart} from '../factory/ShoppingCartFactory';
 import {GetCart} from "../../domain/useCase/GetCart";
 import {cartRepository} from "../factory/CartRepositoryFactory";
 import {CartDTO} from "../../data/dto/CartDTO";
@@ -18,7 +18,7 @@ export class CartController implements ControllerDefinition {
     try {
       const cart = await new GetCart(shoppingCart, cartRepository).execute(req.params.cartId);
       res.send(new CartDTO(cart).execute());
-    }catch (e) {
+    } catch (e) {
       res.status(400).send(e);
     }
   }
@@ -30,10 +30,8 @@ export class CartController implements ControllerDefinition {
         cartId: req.params.cartId,
         products: req.body.products,
       });
-
-
       res.send(new CartDTO(cart).execute());
-    }catch (e) {
+    } catch (e) {
       res.status(400).send(e);
     }
   }

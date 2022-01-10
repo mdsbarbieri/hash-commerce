@@ -4,10 +4,17 @@ export class CartDTO {
   constructor(private cart: Cart) {
   }
 
-  private getProductsArray() {
+  private getProductsArray(): any[] {
     const products = [];
-    for (const [key, value] of this.cart.products) {
-      products.push(value);
+    for (const [key, product] of this.cart.products) {
+      products.push({
+        "id": product.id,
+        "quantity": product.quantity,
+        "unit_amount": product.unitAmount,
+        "total_amount": product.totalAmount,
+        "discount": product.discount,
+        "is_gift": product.isGift
+      });
     }
     return products;
   }
