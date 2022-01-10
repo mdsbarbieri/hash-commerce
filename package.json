@@ -1,7 +1,7 @@
 {
   "name": "hash-commerce",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/src/main.js",
   "repository": "git@github.com:mdsbarbieri/hash-commerce.git",
   "author": "Matheus Barbieri <mdsbarbieri@gmail.com>",
   "license": "MIT",

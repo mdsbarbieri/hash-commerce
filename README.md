@@ -1,5 +1,9 @@
 # hash-commerce
 
+## Sobre o projeto
+- Projeto foi desenvolvido em NodeJS/Typescript
+- O bootstrap da aplicação está localizado em `src/main.ts`
+
 ## Instruções para execução
 
 - Necessário ter docker e docker-compose instalado
