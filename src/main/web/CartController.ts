@@ -4,10 +4,10 @@ import {Controller} from '../../domain/decorator/Controller';
 import {Request} from '../../data/model/server/Request';
 import {Response} from '../../data/model/server/Response';
 import {Post} from '../../domain/decorator/Post';
-import {AddItemToCart} from '../../domain/useCase/AddItemToCart';
+import {AddItemToCart} from '../../domain/useCase/cart/AddItemToCart';
 import {productRepository} from '../factory/ProductRepositoryFactory';
 import {shoppingCart} from '../factory/ShoppingCartFactory';
-import {GetCart} from "../../domain/useCase/GetCart";
+import {GetCart} from "../../domain/useCase/cart/GetCart";
 import {cartRepository} from "../factory/CartRepositoryFactory";
 import {CartDTO} from "../../data/dto/CartDTO";
 

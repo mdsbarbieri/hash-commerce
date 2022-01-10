@@ -1,5 +1,5 @@
 import {PromotionEngine} from "../../../domain/entity/PromotionEngine";
-import {BFGiftWithPurchasePromotion} from "../../../domain/useCase/BFGiftWithPurchasePromotion";
+import {BFGiftWithPurchasePromotion} from "../../../domain/useCase/promotion/BFGiftWithPurchasePromotion";
 import {Cart} from "../../../data/model/cart/Cart";
 import {CartItem} from "../../../data/model/cart/CartItem";
 

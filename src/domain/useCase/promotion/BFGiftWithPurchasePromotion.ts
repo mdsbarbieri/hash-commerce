@@ -1,5 +1,5 @@
-import { Cart } from '../../data/model/cart/Cart';
-import { AbstractOrderPromotion } from '../../data/abstract/AbstractOrderPromotion';
+import { Cart } from '../../../data/model/cart/Cart';
+import { AbstractOrderPromotion } from '../../../data/abstract/AbstractOrderPromotion';
 
 export class BFGiftWithPurchasePromotion extends AbstractOrderPromotion {
   constructor(private readonly currentDate: Date) {

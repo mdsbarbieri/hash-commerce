@@ -1,4 +1,4 @@
-import {AddItemToCart} from "../../../domain/useCase/AddItemToCart";
+import {AddItemToCart} from "../../../domain/useCase/cart/AddItemToCart";
 import {productRepository} from "../../../main/factory/ProductRepositoryFactory";
 import {shoppingCart} from "../../../main/factory/ShoppingCartFactory";
 import {cartRepository} from "../../../main/factory/CartRepositoryFactory";

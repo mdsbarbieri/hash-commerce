@@ -1,5 +1,5 @@
 import { PromotionEngine } from '../../domain/entity/PromotionEngine';
-import { BFGiftWithPurchasePromotion } from '../../domain/useCase/BFGiftWithPurchasePromotion';
+import { BFGiftWithPurchasePromotion } from '../../domain/useCase/promotion/BFGiftWithPurchasePromotion';
 
 class PromotionEngineFactory {
   static create() {
