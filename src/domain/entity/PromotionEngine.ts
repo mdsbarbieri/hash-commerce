@@ -1,24 +1,17 @@
-import { AbstractOrderPromotion } from '../../data/abstract/AbstractOrderPromotion';
-import { AbstractItemPromotion } from '../../data/abstract/AbstractItemPromotion';
-import { OrderPromotion } from '../../data/model/promotion/OrderPromotion';
-import { Cart } from '../../data/model/cart/Cart';
-import { ItemPromotion } from '../../data/model/promotion/ItemPromotion';
+import {AbstractOrderPromotion} from '../../data/abstract/AbstractOrderPromotion';
+import {OrderPromotion} from '../../data/model/promotion/OrderPromotion';
+import {Cart} from '../../data/model/cart/Cart';
+import {ItemPromotion} from '../../data/model/promotion/ItemPromotion';
 
 export class PromotionEngine {
-  constructor(private readonly promoList: OrderPromotion[] | ItemPromotion[]) {}
+  constructor(private readonly promoList: OrderPromotion[] | ItemPromotion[]) {
+  }
 
-  execute(cart: Cart) {
-    this.promoList.forEach((promo) => {
+  async execute(cart: Cart) {
+    for (const promo of this.promoList) {
       if (promo instanceof AbstractOrderPromotion) {
-        promo.apply(cart);
-        return;
+        await promo.apply(cart);
       }
-      if (promo instanceof AbstractItemPromotion) {
-        cart.products.forEach((product) => {
-            promo.apply(product);
-        });
-        return;
-      }
-    });
+    }
   }
 }

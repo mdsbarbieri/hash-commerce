@@ -26,6 +26,9 @@ export class AddItemToCart implements UseCase {
       if (!product) {
         throw new BusinessError('Product not found');
       }
+      if (product.is_gift) {
+        throw new BusinessError('Cannot add gift to cart');
+      }
       await this.shoppingCart.addItem(cart, product, cartItem.quantity);
     }
 

@@ -1,21 +1,23 @@
-import { Cart } from '../../../data/model/cart/Cart';
-import { AbstractOrderPromotion } from '../../../data/abstract/AbstractOrderPromotion';
+import {Cart} from '../../../data/model/cart/Cart';
+import {AbstractOrderPromotion} from '../../../data/abstract/AbstractOrderPromotion';
+import {ProductRepository} from "../../../data/repository/ProductRepository";
 
 export class BFGiftWithPurchasePromotion extends AbstractOrderPromotion {
-  constructor(private readonly currentDate: Date) {
+  constructor(private readonly currentDate: Date, private readonly productRepository: ProductRepository) {
     super();
   }
 
-  apply(cart: Cart): void {
-    if(!this.isEligible(cart)) {
+  async apply(cart: Cart) {
+    if (!this.isEligible(cart)) {
       return;
     }
 
-    cart.products.set('999',{
-      id: '999',
-      quantity: 1,
+    const product = await this.productRepository.getById('6');
+    cart.products.set(product.id.toString(), {
+      id: product.id.toString(),
+      quantity :1,
       discount: 0,
-      isGift: true,
+      isGift: product.is_gift,
       totalAmount: 0,
       unitAmount: 0,
     });

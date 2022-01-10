@@ -26,7 +26,7 @@ export class ShoppingCart {
       });
 
       cart.products.set(productId, cartItem);
-      this.promotionEngine.execute(cart);
+      await this.promotionEngine.execute(cart);
     } catch (e) {
     }
   }
