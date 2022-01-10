@@ -2,7 +2,7 @@ import {CartController} from '../../../main/web/CartController';
 import {initializeTestEnvironment} from '../../helper';
 
 describe('Cart Controller', () => {
-  const adapter = initializeTestEnvironment([CartController]);
+  const adapter = initializeTestEnvironment('3002', [CartController]);
   const app = adapter.getServer();
 
   it('checks if server start properly', async () => {

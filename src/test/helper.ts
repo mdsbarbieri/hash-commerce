@@ -1,15 +1,23 @@
 import { FastifyAdapter } from '../adapter/server/FastifyAdapter';
 import { App } from '../App';
 
-export const initializeTestEnvironment = (controllerArray: any = []) => {
-  const fastifyAdapter = new FastifyAdapter('3002', '0.0.0.0', { logger: false });
+let initialized = false;
+export const initializeTestEnvironment = (port = '3001', controllerArray: any = []) => {
+  const fastifyAdapter = new FastifyAdapter(port, '0.0.0.0', { logger: false });
   const server = new App(fastifyAdapter, controllerArray);
 
   beforeAll(async () => {
+    if(initialized){
+      return
+    }
     await server.start();
+    initialized = true;
   });
 
-  afterAll(async () => await server.stop());
+  afterAll(async () => {
+    await server.stop()
+    initialized = false;
+  });
 
   return fastifyAdapter;
 };
