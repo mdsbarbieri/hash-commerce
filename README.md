@@ -11,9 +11,10 @@
 - Necessário ter docker/docker-compose/node:16.13.1/yarn instalado
 - No terminal navegar até a pasta da aplicação
 - Executar a instalação das dependências: ```yarn install```
-- Copiar a definição das variáveis de ambiente: ```cp .env.example .env```
+- Copiar a definição das variáveis de ambiente: ```cp .env.example .env && cp .env.test.example .env.test```
 - Executar o comando: ```docker-compose -f docker-compose.dev.yml up```
 - Em um segundo terminal executar o comando: ```yarn dev```
+- Para rodar os testes é executar o comando ```yarn test``` ou ```yarn test:watch``` para escutar alterações no código
 
 ## Endpoints
 
