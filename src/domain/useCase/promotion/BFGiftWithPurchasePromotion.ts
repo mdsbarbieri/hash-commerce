@@ -1,6 +1,6 @@
-import {Cart} from '../../../data/model/cart/Cart';
-import {AbstractOrderPromotion} from '../../../data/abstract/AbstractOrderPromotion';
-import {ProductRepository} from "../../../data/repository/ProductRepository";
+import { Cart } from '../../../data/model/cart/Cart';
+import { AbstractOrderPromotion } from '../../../data/abstract/AbstractOrderPromotion';
+import { ProductRepository } from '../../../data/repository/ProductRepository';
 
 export class BFGiftWithPurchasePromotion extends AbstractOrderPromotion {
   constructor(private readonly currentDate: Date, private readonly productRepository: ProductRepository) {
@@ -13,9 +13,14 @@ export class BFGiftWithPurchasePromotion extends AbstractOrderPromotion {
     }
 
     const product = await this.productRepository.getById('6');
+
+    if (!product) {
+      return;
+    }
+
     cart.products.set(product.id.toString(), {
       id: product.id.toString(),
-      quantity :1,
+      quantity: 1,
       discount: 0,
       isGift: product.is_gift,
       totalAmount: 0,
@@ -29,7 +34,7 @@ export class BFGiftWithPurchasePromotion extends AbstractOrderPromotion {
 
   isEligible(cart: Cart): boolean {
     let hasGift = false;
-    cart.products.forEach((product) => product.isGift);
+    cart.products.forEach(product => product.isGift);
     if (hasGift) {
       return false;
     }
